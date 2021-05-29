@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/4deb35bfe2.js" crossorigin="anonymous"></script>
+    <title>WakaChhat</title>
+
+</head>
+<body>
+
+    <div id="frame">
+        <div class="container-fluid d-flex justify-content-between">
+            <h2 class="float-left">Chat Messages</h2>
+            <form class="form-inline my-2 my-lg-0" method="post" action="#" th:action="@{./auth/logout}">
+                <button class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+            </form>
+        </div>
+        <div class="content container w-100">
+
+            <div class="messages" th:if = "${#lists.size(messages) > 0}">
+                <ul>
+                    <li class="sent">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="">
+                        <div>
+                            <small>Harvey Specter</small>
+                            <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
+                        </div>
+                    </li>
+                    <li th:each="message : ${messages}"
+                        class="replies">
+                        <img src="http://emilcarlsson.se/assets/mikeross.png" alt="">
+                        <div>
+                            <small th:text="${message.username}">UserName</small>
+                            <p th:text="${message.messageText}">
+                                Hey! I'm fine. Thanks for asking!
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="my-3" th:if = "${#lists.size(messages) == 0}">There are no Messages, Kindly initiate Chat</div>
+
+            <div class="message-input">
+                <form class="form-control wrap align-items-center my-3" action="#" th:action="@{'/chat'}" th:object="${chatForm}" method="POST">
+                    <input id="messageText" type="text" th:field="*{messageText}" placeholder="Write your message...">
+                    <select id="messageType" class="attachment" th:field="*{messageType}">
+                        <option selected
+                                th:each="messageType : ${T(com.udacity.jwdnd.c1.review.dtos.message.MessageType).values()}"
+                                th:value="${messageType}"
+                                th:text="${messageType.displayValue}">Message Type
+                        </option>
+                    </select>
+                    <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
