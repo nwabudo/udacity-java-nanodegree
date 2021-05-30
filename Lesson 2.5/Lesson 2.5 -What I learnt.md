@@ -2,7 +2,7 @@
 
 ## What to Learn
 
-![Lesson Outline](/lesson-outline.png)
+![Lesson Outline](./lesson-outline.png)
 
 ## Lesson Outline
 
@@ -12,7 +12,7 @@
 
 ## ORM and Security
 
-![The Growing Layers of Our Application](/big-picture.png)
+![The Growing Layers of Our Application](./big-picture.png)
 
 The figure above shows the growing layers of our application. By adding MyBatis, we now have a translation from the Java and Spring world to the world of databases and SQL.
 
@@ -137,7 +137,7 @@ All we have to do to use these methods is inject beans for this interface into o
 
 #### MyBatis Mappers Lie at the Center of Our Onion Architecture
 
-![MyBatis Mappers](/mybatis-mappers.png)
+![MyBatis Mappers](./mybatis-mappers.png)
 
   MyBatis Mappers lie at the center of our onion architecture. Remember, that means that the only beans that should have dependencies on them are in the next layer up, services.
 

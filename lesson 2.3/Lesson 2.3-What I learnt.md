@@ -2,7 +2,7 @@
 
 ## Spring Boot's Building Blocks
 
-![Spring Boot Basics](/lesson-outline.png)
+![Spring Boot Basics](./lesson-outline.png)
 
 ## Lesson Outline
 
@@ -13,13 +13,13 @@
 
 ## The Big Picture
 
-![The Spring Transformation](/the-big-picture.png)
+![The Spring Transformation](./the-big-picture.png)
 
 The figure above shows that Spring takes the component class files and dependency configuration from the developer and instantiates a system of Java objects with references to each other.
 
 Of all the tools we'll be using in this course, Spring is the most important because it defines our entire style of application development. Spring is a framework for Inversion of Control, which means that to use it, we have to package our code into individual component classes, telling Spring which components need each other to function. Spring takes the component classes we define and the dependencies we define between them and instantiates a system of matching Java objects with references to each other. This frees us from having to write so-called "glue code" to instantiate, connect, and manage components manually, and allows us to instead focus on writing so-called business logic, or code that concerns itself exclusively on the conceptual model of the application.
 
-### **Key Terms**
+### Key Terms
 
     * **Inversion of Control (IoC)**: A design pattern in which the developer creates independent application components and uses a framework to connect them, rather than writing the integration code themselves
     * **Business Logic**: Code that relates exclusively to an application's conceptual model and featureset. Contrast with utility code like database access, HTTP request parsing, etc.
@@ -52,6 +52,7 @@ Data Type
 Data Types are Simple Data Containers
 
 ```java
+
 public class UserProfile {
    private String firstName;
    private String lastName;
@@ -117,7 +118,7 @@ When there are multiple beans that satisfy a specific dependency, Spring's auto-
 
 `@ComponentScan` provides another layer of automation - automatic component scanning throughout your entire code base.
 
-![How Spring Processes an IoC Configuration.](/spring-ioc-configuration.png)
+![How Spring Processes an IoC Configuration.](./spring-ioc-configuration.png)
 
 The figure above shows an example of how Spring processes an IoC configuration. The general steps are:
 
@@ -192,7 +193,7 @@ One important thing to keep in mind is that `@ComponentScan` only marks the pack
 
 #### Onion Architecture
 
-![The Onion Architecture](/the-onion-architecture.png)
+![The Onion Architecture](./the-onion-architecture.png)
 
 The figure above shows the basic structure of Onion Architecture. External requests must first pass through a layer of controllers or request handlers whose only purpose is to handle these external requests. These controllers then use the next layer of the onion, the services, to process the actions or analysis triggered by the request. The services, in turn, use each other and the next layer, repositories and data access, to persist the results of the actions triggered by the request.
 

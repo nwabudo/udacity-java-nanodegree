@@ -2,7 +2,7 @@
 
 ## What to Learn
 
-![Spring MVC and Thymeleaf](/spring-mvc-and-thymleaf-outline.png)
+![Spring MVC and Thymeleaf](./spring-mvc-and-thymleaf-outline.png)
 
 ## Lesson Outline
 
@@ -12,7 +12,7 @@
 
 ## Developing Websites from the Backend
 
-![The Relationship Between Spring MVC and the Client](/spring-mvc-and-client.png)
+![The Relationship Between Spring MVC and the Client](./spring-mvc-and-client.png)
 
 The figure above shows the relationship between Spring MVC and the client. Spring MVC uses HTML templates and application data to render a view for the client browser to display. The view exposes certain actions to the user, which when triggered are sent to Spring MVC, which processes the actions and renders new views for the client.
 
@@ -42,7 +42,7 @@ You'll learn and practice HTML templates in the current lesson, and data model i
 
 ### Basic User Interactions
 
-![Basic User Interaction](/basic-interaction.png)
+![Basic User Interaction](./basic-interaction.png)
 
 There are three basic scenarios that comprise the majority of web-based user interaction flows.
 
@@ -68,7 +68,7 @@ MVC is an abstract pattern, though, and every library implements it differently.
 
 #### The Spring MVC Architecture
 
-![The Spring MVC Architecture](/mvc-architecture.png)
+![The Spring MVC Architecture](./mvc-architecture.png)
 
 The figure above shows the Spring MVC's architecture. The browser represents the view, and requests from the browser are user actions. When Spring MVC processes a request, it creates a Model object that represents the dynamic data associated with the view and passes it to a controller method that matches the request. The controller updates the model and chooses a template to render in response. Spring MVC passes the template and the updated model to Thymeleaf, which generates an updated view, which Spring sends in response to the browser.
 
@@ -87,7 +87,7 @@ The figure above shows the Spring MVC's architecture. The browser represents the
 
 ## HTML Templates with Thymeleaf
 
-![How Thmmeleaf Renders a View](/thymleaf-rendering.png)
+![How Thmmeleaf Renders a View](./thymleaf-rendering.png)
 
 The figure above shows how Thymeleaf renders a view. In order to render a view, Thymeleaf must be given a template and a model to use. Thymeleaf scans through the template to find dynamic data expressions and resolves the variables in those expressions using the model. Some dynamic data expressions result in iterated or conditional rendering in addition to more typical text replacement.
 
@@ -106,7 +106,7 @@ The figure above shows how Thymeleaf renders a view. In order to render a view, 
 
 ### Video Lessons on Connecting Controllers to Templates
 
-![User Input](/user-input.png)
+![User Input](./user-input.png)
 
 The final piece of the Spring MVC puzzle we need to build fully capable web apps is the ability to handle user-submitted data. As before, there are two main components to this, one on the template side, the other on the controller side.
 

@@ -28,7 +28,7 @@ Learning Java is valuable because it's a widely-used industry mainstay, and it h
 
 ## Who are the Stakeholders
 
-TO-DO: Attach Image here
+![Business Stakeholders](./l0-18-business-stakeholders.jpg)
 
 On a professional development team, many people are involved in the choice of language and framework:
 
@@ -70,6 +70,8 @@ Don't worry if you didn't understand any terms used above; you will learn and pr
 
 ### Course Outline
 
+![Course Outline](./l0-30-course-outline.jpg)
+
 - Basics of Java server architecture, dependency management in Java, and how Spring integrates with both.
 - Core Spring principles. We'll be covering dependency injection, bean configuration, service development, and server-wide configuration.
 - Spring MVC and Thymeleaf, an HTML template engine. We'll talk about Spring controllers, Thymeleaf template attributes, and connecting the two with the MVC pattern.
@@ -100,15 +102,13 @@ Since we're going to be building web apps with Java and Spring boot, the first s
 
 ### Java Application Server
 
+![Java Application server](./l1-16-the-java-application-server.jpg)
+
 A Java Application Server is a pluggable architecture that can host many deployed applications at once. It provides utilities like multi-threading, request filtering, and resource sharing to each application. Those applications must expose endpoints that handle the requests routed to them by the server.
 
 The structure of a Java Application Server. Just like any other web-connected program, it listens for incoming requests on one of the physical server's ports. Once it receives a request, it uses a _dispatcher_ to decide which application Servlet should receive the request. There may be many copies of any given servlet running at once so that multiple requests can be processed in parallel, and all of them have access to resources shared by the Application Server - like connections to a database.
 
 Application servers provide utilities and resources to the applications they host, but they don't perform any of what we call business logic. You're going to have to write that yourself!
-
-### The Structure of a Java Application Server
-
-TO-DO: Attach Image Here
 
 ### Key Terms on Java Application Server
 
@@ -125,6 +125,8 @@ HTTP GET and POST: Every HTTP request has an important header that determines it
 - **Pluggable Architecture**: A pluggable architecture refers to any piece of software that allows parts of it to be added, replaced, and removed. Usually, this is achieved through a common interface for every "pluggable" component. Sometimes the architecture can even replace components at runtime, as is the case with Servlets in an Application Server.
 
 - **Threads/Threading**: These terms come from concurrent programming - a thread is essentially one track of computation, and multi-threading is running multiple threads in parallel. This gets a little complicated because your CPU has a limited number of physical cores that can process instructions in parallel, while the number of threads you can have can be many more than your computer has cores, but that's a topic for another time!
+
+![Big Picture](./l1-06-big-picture.jpg)
 
 ### Further Research on Java Application Server
 
@@ -151,6 +153,8 @@ destroy is where servlet resource cleanup is handled, and is called directly bef
 
 ### The Lifecycle of a Servlet in an Application Server
 
+![Servlets Lifecycle](./servlet-lifecycle.png)
+
 The lifecycle of a Servlet in an Application Server. When application code is first loaded, the server looks for a `web.xml` file that identifies the servlets to be registered. The server then instantiates the servlets, calling their `init` methods to execute any required initialization code. While the servlets are active, the server forwards requests to each of them, calling their `service` methods to execute application logic. When a servlet is ready to be unloaded, the server first calls the servlet's `destroy` method, which executes any required clean up logic.
 
 ### A quick note on Java Application Files
@@ -173,6 +177,8 @@ When you want to deploy an app to an app server, you have to package it as a Web
 - Official documentation for [packaging WAR files](https://javaee.github.io/tutorial/packaging003.html#BCGHAHGD)
 
 ## Spring Applications
+
+![Lesson Outline](./l1-lesson-outline.png)
 
 Spring is an application framework, which means that instead of choosing when to invoke it from your application, you choose when it invokes your application code. This pattern of software development is called Inversion of Control (IoC), and it's powerful because it allows developers to develop specialized application components and use Spring to connect them with each other using dependency injection. This is good for clean, separated code and for code reuse. This is evident when looking at the vast number of Spring modules and Spring-integrated third-party tools that are available. This course focuses on a few of them:
 
