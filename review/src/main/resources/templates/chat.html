@@ -13,12 +13,11 @@
 
 </head>
 <body>
-
     <div id="frame">
         <div class="container-fluid d-flex justify-content-between">
             <h2 class="float-left">Chat Messages</h2>
             <form class="form-inline my-2 my-lg-0" method="post" action="#" th:action="@{./auth/logout}">
-                <button class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+                <button id="log-out" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
             </form>
         </div>
         <div class="content container w-100">
@@ -36,8 +35,8 @@
                         class="replies">
                         <img src="http://emilcarlsson.se/assets/mikeross.png" alt="">
                         <div>
-                            <small th:text="${message.username}">UserName</small>
-                            <p th:text="${message.messageText}">
+                            <small class="chatMessageUsername" th:text="${message.username}">UserName</small>
+                            <p class="chatMessageText" th:text="${message.messageText}">
                                 Hey! I'm fine. Thanks for asking!
                             </p>
                         </div>

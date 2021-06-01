@@ -14,6 +14,10 @@ public class ChatMessage {
         this.time = new Date().toString();
     }
 
+    public ChatMessage() {
+
+    }
+
     public Integer getMessageId() {
         return messageId;
     }
