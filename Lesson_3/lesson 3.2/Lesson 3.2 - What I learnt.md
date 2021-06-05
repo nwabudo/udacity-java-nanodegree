@@ -11,4 +11,4 @@ There are four principles that APIs follow:
 
 ## Classwork
 
-For this lesson the classwork done is contained in the file ClassWork - ****\Class Work\bootstrap\**
+For this lesson the classwork done is contained in the file ClassWork - ****/Class Work/bootstrap/**
