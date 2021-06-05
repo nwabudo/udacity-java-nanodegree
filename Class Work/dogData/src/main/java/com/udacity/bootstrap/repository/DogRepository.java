@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DogRepository extends JpaRepository<Dog, Long> {
+public interface DogRepository extends CrudRepository<Dog, Long> {
 
     @Query("select d.breed from Dog d")
     List<String> findAllDogBreed();
@@ -19,4 +19,8 @@ public interface DogRepository extends JpaRepository<Dog, Long> {
 
     @Query("select d.name from Dog d")
     List<String> findAllDogNames();
+
+    void deleteByBreed(String breed);
+
+    List<Dog> findByBreed(String breed);
 }

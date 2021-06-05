@@ -39,14 +39,13 @@ public class Dog {
         this.origin = origin;
     }
 
-    public Dog(Long id, String name, String breed, String origin) {
-        this.id = id;
+    public Dog() {
+    }
+
+    public Dog(String name, String breed, String origin) {
         this.name = name;
         this.breed = breed;
         this.origin = origin;
-    }
-
-    public Dog() {
     }
 
     public Dog(String breed, String name) {
