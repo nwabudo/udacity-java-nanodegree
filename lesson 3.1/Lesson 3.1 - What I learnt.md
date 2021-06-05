@@ -18,3 +18,32 @@ Step 1: The web service provider (the person who created the web service) define
 Step 2: The client sends a request to the web service across the network.
 
 Step 3: The web service receives the request and performs an action (like query a database or perform a calculation) and sends a response back to the calling client
+
+### Web Services vs APIs vs Microservices
+
+Web Services:
+
+* Started in early 90's
+* SOAP Complexities led to REST
+* Developing Restful APIs using Spring Boot
+* SOAP (Simple Object Access Protocol)
+
+APIs
+
+* APIs are more lightweight and Streamlined
+* They are good for devices with limited bandwith
+* They are dependednt on SOAP Protocol vs REST
+* It requires work in Packaging and Unpackaging data
+
+> All Web Services are APIs but not all APIs are Web Services
+
+Microservices
+
+* Similar to APIs
+* Fully Contained in an environment
+* Tied to an Individual Business Component
+* Specific to a Business Domain
+
+#### Publicly Accessible API
+
+[A list of publicly accessible APIs](https://github.com/public-apis/public-apis/blob/master/README.md)
