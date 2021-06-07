@@ -40,6 +40,10 @@ So how does Spring Data Rest work?
 
 There is no need to create a controller or service layer!
 
+### Further Study on Microservices
+
+- <https://www.section.io/engineering-education/introduction-to-microservices-with-spring-and-eureka/>
+
 ## Classwork
 
 For this lesson the classwork done is contained in the file ClassWork - ****/Class Work/dogData/**

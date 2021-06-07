@@ -1,5 +1,6 @@
 package com.udacity.bootstrap.controller;
 
+import com.udacity.bootstrap.dtos.DogDTO;
 import com.udacity.bootstrap.entity.Dog;
 import com.udacity.bootstrap.service.DogService;
 import io.swagger.annotations.Api;
@@ -19,7 +20,7 @@ import java.util.List;
         @ApiResponse(code=500, message = "The server is down. Please make sure that the Location microservice is running.")
 })
 @Api(value = "DogAPI",tags = {"Dog API"})
-@RequestMapping("dogs")
+//@RequestMapping("dogs")
 public class DogController {
 
     private DogService dogService;
@@ -28,45 +29,39 @@ public class DogController {
         this.dogService = dogService;
     }
 
-    @GetMapping("")
+    @RequestMapping(value = "/dogs", method = RequestMethod.GET)
     public ResponseEntity<List<Dog>> getAllDogs() {
         List<Dog> list = dogService.retrieveDogs();
         return new ResponseEntity<List<Dog>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @RequestMapping(value = "/dogs/{id}", method = RequestMethod.GET)
     public ResponseEntity<Dog> getDogById(@PathVariable("id") long id) {
         Dog dog = dogService.retrieveDogById(id);
         return new ResponseEntity<Dog>(dog, HttpStatus.OK);
     }
 
-    @GetMapping("/breed")
+    @RequestMapping(value = "/dogs/breed", method = RequestMethod.GET)
     public ResponseEntity<List<String>> getAllDogBreed(){
         List<String> dogBreeds = this.dogService.retrieveDogBreed();
-        HttpStatus status;
-        if(dogBreeds == null || dogBreeds.isEmpty()){
-            status = HttpStatus.NOT_FOUND;
-            dogBreeds =  Collections.emptyList();
-        }else status = HttpStatus.OK;
-
-        return new ResponseEntity<>(dogBreeds, status);
+        return new ResponseEntity<>(dogBreeds, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}/breed")
+    @RequestMapping(value = "/dogs/{id}/breed")
     public ResponseEntity<String> getDogBreedById(@PathVariable("id") long id){
         String dogBreed = this.dogService.retrieveDogBreedById(id);
         return new ResponseEntity<>(dogBreed, HttpStatus.OK);
     }
 
-    @GetMapping("/name")
+    @RequestMapping(value = "/dogs/name")
     public ResponseEntity<List<String>> getAllDogName(){
         List<String> dogNames = this.dogService.retrieveDogNames();
-        HttpStatus status;
-        if(dogNames == null || dogNames.isEmpty()){
-            status = HttpStatus.NOT_FOUND;
-            dogNames =  Collections.emptyList();
-        }else status = HttpStatus.OK;
+        return new ResponseEntity<>(dogNames, HttpStatus.OK);
+    }
 
-        return new ResponseEntity<>(dogNames, status);
+    @RequestMapping(value = "/dogs", method = RequestMethod.POST)
+    public ResponseEntity<Dog> insertNewDog(DogDTO dog){
+        Dog returnedDog = this.dogService.insertNewDog(dog);
+        return new ResponseEntity<>(returnedDog, HttpStatus.OK);
     }
 }

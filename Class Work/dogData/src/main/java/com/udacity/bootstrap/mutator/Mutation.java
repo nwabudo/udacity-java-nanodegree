@@ -2,7 +2,7 @@ package com.udacity.bootstrap.mutator;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.udacity.bootstrap.entity.Dog;
-import com.udacity.bootstrap.exception.DogNotFoundException;
+import com.udacity.bootstrap.exception.DogServiceException;
 import com.udacity.bootstrap.repository.DogRepository;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ public class Mutation implements GraphQLMutationResolver {
     public boolean deleteDogBreed(String breed){
         //this.dogRepository.deleteByBreed(breed);
         List<Dog> dogByBreed = (List<Dog>)this.dogRepository.findByBreed(breed);
-        if(dogByBreed == null || dogByBreed.isEmpty()) throw new DogNotFoundException("No Dog with Breed Found", breed);
+        if(dogByBreed == null || dogByBreed.isEmpty()) throw new DogServiceException("No Dog with Breed Found", breed);
         this.dogRepository.deleteAll(dogByBreed);
         return true;
     }
@@ -33,13 +33,17 @@ public class Mutation implements GraphQLMutationResolver {
             dog = this.dogRepository.save(dog);
             return dog;
         }else{
-            throw new DogNotFoundException("Dog with id not Found", id);
+            throw new DogServiceException("Dog with id not Found", id);
         }
     }
 
     public Dog insertNewDog(String name, String breed, String origin){
         Dog dog = new Dog(name, breed, origin);
-        dog = this.dogRepository.save(dog);
+        try{
+            dog = this.dogRepository.save(dog);
+        }catch(Exception ex){
+            throw new DogServiceException("Error Inserting new Dog with name", name);
+        }
         return dog;
     }
 }

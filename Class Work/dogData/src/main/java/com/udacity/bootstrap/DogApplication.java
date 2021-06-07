@@ -7,12 +7,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+//import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 public class DogApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(DogApplication.class);
@@ -24,6 +24,11 @@ public class DogApplication {
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder){
 		return builder.build();
+	}
+
+	@Bean
+	public RestTemplateBuilder restTemplateBuilder(){
+		return new RestTemplateBuilder();
 	}
 
 //	@Bean

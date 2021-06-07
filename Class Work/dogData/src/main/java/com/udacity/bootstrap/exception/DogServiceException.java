@@ -11,16 +11,16 @@ import java.util.List;
 import java.util.Map;
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Dog not found")
-public class DogNotFoundException extends RuntimeException implements GraphQLError {
+public class DogServiceException extends RuntimeException implements GraphQLError {
 
     private Map<String, Object> extensions = new HashMap<>();
 
-    public DogNotFoundException(String message, Long invalidDogId) {
+    public DogServiceException(String message, Long invalidDogId) {
         super(message);
         extensions.put("invalidDogId", invalidDogId);
     }
 
-    public DogNotFoundException(String message, String invalidSearchRef) {
+    public DogServiceException(String message, String invalidSearchRef) {
         super(message);
         extensions.put("invalidSearchRef", invalidSearchRef);
     }
