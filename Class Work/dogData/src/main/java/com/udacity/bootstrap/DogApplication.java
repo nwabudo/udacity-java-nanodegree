@@ -26,15 +26,15 @@ public class DogApplication {
 		return builder.build();
 	}
 
-	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate){
-		return args -> {
-			NumberValidate number = restTemplate.getForObject(
-					"https://phonevalidation.abstractapi.com/v1/?api_key=8fc31904e03746e19fba5807e6e442ff&phone=2348166302445",
-					NumberValidate.class
-			);
-			log.info(number.toString());
-		};
-	}
+//	@Bean
+//	public CommandLineRunner run(RestTemplate restTemplate){
+//		return args -> {
+//			NumberValidate number = restTemplate.getForObject(
+//					"https://phonevalidation.abstractapi.com/v1/?api_key=8fc31904e03746e19fba5807e6e442ff&phone=2348166302445",
+//					NumberValidate.class
+//			);
+//			log.info(number.toString());
+//		};
+//	}
 
 }

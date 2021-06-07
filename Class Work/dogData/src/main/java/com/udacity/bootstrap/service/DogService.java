@@ -13,4 +13,6 @@ public interface DogService {
     List<String> retrieveDogNames();
 
     List<Dog> retrieveDogs();
+
+    Dog retrieveDogById(long id);
 }

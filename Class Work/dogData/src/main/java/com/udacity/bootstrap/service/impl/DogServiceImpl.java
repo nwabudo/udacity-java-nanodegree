@@ -39,4 +39,11 @@ public class DogServiceImpl implements DogService {
     public List<Dog> retrieveDogs() {
         return (List<Dog>) dogRepository.findAll();
     }
+
+    @Override
+    public Dog retrieveDogById(long id) {
+        Optional<Dog> optionalDog = this.dogRepository.findById(id);
+        Dog dog = optionalDog.orElseThrow(() -> new DogNotFoundException("Dog with Id not found", id));
+        return dog;
+    }
 }
